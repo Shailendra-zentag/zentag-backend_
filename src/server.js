@@ -15,7 +15,7 @@ const mongoOptions = {
   maxPoolSize: 10,
   serverSelectionTimeoutMS: 5000,
   socketTimeoutMS: 45000,
-  bufferCommands: false,
+  bufferCommands: true, // Enable buffering to prevent errors when DB is not connected
 };
 
 // Connect to MongoDB

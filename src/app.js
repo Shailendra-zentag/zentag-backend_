@@ -11,6 +11,8 @@ import authRoutes from './routes/auth.routes.js';
 import userRoutes from './routes/user.routes.js';
 import videoRoutes from './routes/videos.routes.js';
 import dashboardRoutes from './routes/dashboard.routes.js';
+import streamsRoutes from './routes/streams.routes.js';
+import clipRoutes from './routes/clipRoutes.js';
 
 // Import middleware
 import { errorHandler } from './middleware/errorHandler.js';
@@ -62,6 +64,7 @@ const authLimiter = rateLimit({
 // CORS configuration
 const allowedOrigins = [
   'http://34.14.198.134',
+  'http://34.14.203.238',
   'http://localhost:8080',
   'http://localhost:5173',
   'http://localhost:3000',
@@ -137,11 +140,13 @@ app.get("/health", (req, res) => {
   });
 });
 
-// API Routes
+// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/streams', streamsRoutes);
+app.use('/api/clips', clipRoutes);
 
 // 404 handler
 app.use(notFound);
